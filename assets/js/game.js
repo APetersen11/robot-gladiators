@@ -1,22 +1,49 @@
-// this asks for the robots name
 var playerName = window.prompt("What is your robot's name?")
-console.log(playerName);
+var playerHealth = 100;
+var playerAttack=10;
 
-console.log("This logs a string, good for leaving yourself a message");
-//this will do math and log 20
-console.log(10+10);
-//What is this?
-console.log("Our robot's name is " + playerName)
+//You can also log multiple values at once like this
+console.log(playerName, playerAttack, playerHealth);
 
-// this creates a function names "fight"
-function fight() {
-    console.log("The fight has begun!");
-}
+var enemyName = "Roberto";
+var enemyHealth = 50;
+var enemyAttack= 12;
 
+var fight = function () {
+    //Alert players that they are starting the round
+    window.alert("Welcome to Robot Gladiators!");
 
+    //Subtract the value of playerAttack from the value of enemyHealth and use that result to update the value in the enemyHealth variable
+    enemyHealth = enemyHealth - playerAttack;
 
+    //Log a resulting message to the console so we know it worked
+    console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining. "
+        );
+    
+    //Check enemy's health
+    if (enemyHealth <= 0) {
+        window.alert(enemyName + " has died!");
+    }
+    else {
+        window.alert(enemyName + " still has " + enemyHealth + " health left.")
+    }
 
+    //Subtract the vale of enemyAttack from the value of playerHealth and use that result to update the value in the playerHealth variable
+    playerHealth = playerHealth - enemyAttack
 
+    //Log a resulting message to the console so we know it worked
+    console.log(
+        enemyName + " attacked " + playerName + " now has " + playerHealth + " health remaining. "
+    );
 
+    //Check player health
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+};
 
-//fight();
+fight();
